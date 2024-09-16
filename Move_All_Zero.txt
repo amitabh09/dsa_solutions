@@ -1,0 +1,22 @@
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Solution:
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int j = 0; // j tracks the position to place the next non-zero element
+
+        // Move all non-zero elements to the front
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+
+        // Fill the remaining positions with zeros
+        for (int i = j; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+    }
+}
